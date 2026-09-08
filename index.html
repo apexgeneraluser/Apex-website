@@ -513,21 +513,18 @@
 
   <!-- BOOKING -->
   <section class="booking" id="book">
-    <div class="container booking-layout">
-      <div>
+    <div class="container">
+      <div class="booking-center">
         <span class="eyebrow">Book Online</span>
-        <h2 style="font-size:clamp(32px,4vw,46px); font-weight:700; margin-top:14px;">Pick a time that works for you</h2>
-        <p style="color:rgba(255,255,255,0.7); margin-top:16px; font-size:16px; max-width:440px;">Our live scheduler shows real openings on our calendar &mdash; choose a service, pick a slot, and you're booked instantly. No waiting on a callback.</p>
+        <h2>Pick a time that works for you</h2>
+        <p>Our live scheduler shows real openings on our calendar &mdash; choose a service, pick a slot, and you're booked instantly. No waiting on a callback.</p>
         <ul class="booking-list">
           <li><span class="step-ic">1</span><span>Select the service you need from the scheduler.</span></li>
           <li><span class="step-ic">2</span><span>Choose an available date and time that fits your schedule.</span></li>
           <li><span class="step-ic">3</span><span>Get instant confirmation &mdash; a licensed Apex technician shows up ready to get it done.</span></li>
         </ul>
-      </div>
-
-      <div>
-        <div class="st-scheduler-wrap">
-          <button onclick="_scheduler.show({ schedulerId: 'sched_by9bipe514q7vv8t82asod6x' })" type="button" class="btn btn-red" style="width:100%;">Book Now — see live openings</button>
+        <div class="booking-cta">
+          <button onclick="_scheduler.show({ schedulerId: 'sched_by9bipe514q7vv8t82asod6x' })" type="button" class="btn btn-red">Book Now — see live openings</button>
           <script
             data-api-key="c6b8bebdmb46sppgg7h567w2"
             data-schedulerid="sched_by9bipe514q7vv8t82asod6x"
