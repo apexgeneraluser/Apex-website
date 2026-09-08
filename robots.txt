@@ -1,0 +1,30 @@
+# robots.txt — apexgeneralinc.com (Apex Air, Heating & Electric)
+# Hosted on GitHub Pages
+
+User-agent: *
+Allow: /
+
+# Generative search / AI crawlers — explicitly welcome (GEO)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# AI scrapers with no value to the site or users
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://apexgeneralinc.com/sitemap.xml
