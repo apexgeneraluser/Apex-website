@@ -673,3 +673,44 @@
 .page-hero .btn-outline{border-color:rgba(255,255,255,0.35); color:#ffffff;}
 .page-hero .btn-outline:hover{border-color:#ffffff;}
 .cta-band .btn:hover{background:#000; border-color:#000;}
+
+/* ---------- Financing page (Hearth financing calculator embed) ---------- */
+.fin-layout{display:grid; grid-template-columns:1fr minmax(340px, 420px); gap:44px; align-items:start;}
+.fin-calc-card{
+  background:var(--white); border:1px solid rgba(17,17,20,0.08); border-radius:12px;
+  padding:24px; display:flex; flex-direction:column; align-items:center; gap:16px;
+}
+/* Hearth's script writes its own fixed-size document into this iframe:
+   size the frame to match it exactly so nothing is clipped or letterboxed. */
+#hearth-widget_calculator_v1{
+  display:block; width:320px; max-width:100%; height:772px;
+  border:0; background:transparent; margin:0 auto;
+}
+.fin-note{margin-top:18px; color:var(--steel); font-size:14.5px; line-height:1.6;}
+.fin-note a{color:var(--red); font-weight:700;}
+.fin-note a:hover{text-decoration:underline;}
+.fin-disclaimer{margin:0; color:var(--steel); font-size:12.5px; line-height:1.55; text-align:center;}
+.fin-calc-card noscript{display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center;}
+.fin-calc-card noscript .fin-note{margin-top:0;}
+
+/* Light-surface FAQ variant (financing page sits on paper, not on ink) */
+.faq-list.on-paper .faq-item{
+  background:var(--white); border:1px solid rgba(17,17,20,0.08); border-radius:8px;
+  padding:0 18px; margin-bottom:12px;
+}
+.faq-list.on-paper .faq-item summary{color:var(--ink);}
+.faq-list.on-paper .faq-answer{color:var(--steel);}
+.faq-list.on-paper .faq-answer a{color:var(--red);}
+
+@media (max-width:1000px){
+  .fin-layout{grid-template-columns:1fr; gap:32px;}
+  .fin-calc-card{max-width:520px; margin:0 auto;}
+}
+/* The calculator frame is a fixed 320px wide: below 560px the card goes
+   edge to edge so the container padding cannot squeeze it. */
+@media (max-width:560px){
+  .fin-calc-card{margin:0 -24px; border-radius:0; border-left:0; border-right:0; padding:18px 8px;}
+}
+@media (max-width:352px){
+  .fin-calc-card{padding:18px 0;}
+}
