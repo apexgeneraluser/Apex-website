@@ -63,7 +63,7 @@ header nav.primary-nav .nav-sub a{
   padding:11px 14px; border-radius:6px; text-decoration:none; white-space:nowrap;
 }
 header nav.primary-nav .nav-sub a:hover{background:var(--nav-paper); color:var(--nav-red);}
-header nav.primary-nav .nav-sub a[aria-current="page"]{background:var(--nav-paper); color:var(--nav-red);}
+header nav.primary-nav .nav-sub a[aria-current="page"]{background:var(--nav-paper); color:var(--nav-red-deep);}
 header nav.primary-nav .nav-sub a.nav-sub-all{
   margin-top:6px; border-top:1px solid rgba(17,17,20,0.08); border-radius:0 0 6px 6px;
   padding-top:12px; color:var(--nav-red);
@@ -121,6 +121,19 @@ header .menu-toggle .i-close{display:none;}
   header.nav-open nav.primary-nav .nav-sub a:hover{background:transparent; color:var(--nav-white);}
   header.nav-open nav.primary-nav .nav-sub a.nav-sub-all{
     margin-top:2px; border-top:0; color:var(--nav-red); font-weight:700;
+  }
+  /* Current page inside the dark panel. The desktop chip style (light
+     background) ties on specificity with the rule above, so the panel's
+     72%-white text won on file order and painted white-on-white. Keep the
+     item dark, mark it with a red bar + bold instead of a light chip. */
+  header.nav-open nav.primary-nav .nav-sub a[aria-current="page"]{
+    background:transparent; color:var(--nav-white); font-weight:700;
+    box-shadow:inset 3px 0 0 var(--nav-red); padding-left:12px;
+  }
+  header.nav-open nav.primary-nav > a[aria-current="page"],
+  header.nav-open nav.primary-nav .nav-parent[aria-current="page"]{
+    color:var(--nav-white); font-weight:700;
+    box-shadow:inset 3px 0 0 var(--nav-red); padding-left:12px;
   }
 }
 @media (max-width:400px){
