@@ -682,3 +682,28 @@
 @media (max-width:352px){
   .fin-calc-card{padding:18px 0;}
 }
+/* ---------- Sub-page hero photography ----------
+   Uses the client's existing hero photos (images/hero-1..6.jpg, the same set
+   the homepage slideshow ran). Static image, no slideshow: the existing
+   ::after scrim keeps the copy legible, strengthened for photo backgrounds.
+   Swap an image by editing ONE line here. */
+.page-hero.has-photo{
+  background-size:cover; background-repeat:no-repeat;
+  background-position:center 26%;
+}
+.page-hero.has-photo::after{
+  background:linear-gradient(100deg, rgba(10,10,12,0.95) 0%, rgba(10,10,12,0.88) 38%, rgba(10,10,12,0.66) 70%, rgba(10,10,12,0.52) 100%);
+}
+/* Per-page image. The four portrait sources (hero-1/2/4/5) frame their
+   subject low in the picture, so each position is tuned to that band rather
+   than a generic center crop. Swap an image + position on ONE line below. */
+.page-hero.ph-services  {background-image:url(/images/hero-3.jpg); background-position:center 26%;}
+.page-hero.ph-hvac      {background-image:url(/images/hero-2.jpg); background-position:center 46%;}
+.page-hero.ph-electrical{background-image:url(/images/hero-6.jpg); background-position:center 32%;}
+.page-hero.ph-panel     {background-image:url(/images/hero-4.jpg); background-position:center 46%;}
+.page-hero.ph-control   {background-image:url(/images/hero-5.jpg); background-position:center 46%;}
+.page-hero.ph-emergency {background-image:url(/images/hero-1.jpg); background-position:center 30%;}
+.page-hero.ph-about     {background-image:url(/images/hero-1.jpg); background-position:center 46%;}
+.page-hero.ph-contact   {background-image:url(/images/hero-5.jpg); background-position:center 46%;}
+.page-hero.ph-blog      {background-image:url(/images/hero-3.jpg); background-position:center 26%;}
+.page-hero.ph-financing {background-image:url(/images/hero-4.jpg); background-position:center 46%;}
