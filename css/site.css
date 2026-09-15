@@ -50,16 +50,6 @@
   .peak-divider.on-red{ background:var(--red); }
   .peak-divider.to-ink{ background:var(--ink); }
 
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:100;
-    background:var(--ink);
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  .nav-row{
-    display:flex; align-items:center; justify-content:space-between;
-    height:76px;
-  }
   .brand{
     display:flex; align-items:center; gap:12px;
     color:var(--white);
@@ -90,23 +80,6 @@
     font-size:10.5px; letter-spacing:0.14em; color:var(--red);
     text-transform:uppercase; font-weight:600; margin-top:4px;
   }
-  nav.primary-nav{
-    display:flex; align-items:center; gap:36px;
-  }
-  nav.primary-nav a{
-    color:var(--steel-light);
-    font-size:14.5px; font-weight:600;
-    letter-spacing:0.01em;
-    transition:color 0.15s ease;
-  }
-  nav.primary-nav a:hover{color:var(--white);}
-  .nav-actions{display:flex; align-items:center; gap:16px;}
-  .phone-pill{
-    display:flex; align-items:center; gap:8px;
-    color:var(--white); font-weight:700; font-size:15px;
-    white-space:nowrap;
-  }
-  .phone-pill svg{flex-shrink:0;}
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
     padding:13px 26px;
@@ -124,8 +97,6 @@
   .btn-outline:hover{border-color:var(--white);}
   .btn-outline-ink{border-color:rgba(17,17,20,0.3); color:var(--ink); background:transparent;}
   .btn-outline-ink:hover{border-color:var(--ink);}
-  .menu-toggle{display:none; background:none; border:none; color:var(--white);}
-
   /* ---------- Hero ---------- */
   .hero{
     position:relative;
@@ -455,9 +426,6 @@
     .footer-grid{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:760px){
-    nav.primary-nav{display:none;}
-    .menu-toggle{display:block;}
-    .phone-pill span{display:none;}
     .service-grid{grid-template-columns:1fr;}
     .why-grid{grid-template-columns:1fr;}
     .city-grid{grid-template-columns:repeat(2,1fr);}

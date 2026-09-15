@@ -1,0 +1,136 @@
+/* ============================================================
+   Apex General — standardized site header (single source)
+   Loaded LAST in <head> on every page so it owns the header
+   on all templates (site.css pages, homepage inline styles,
+   blog article template, legal pages). Self-contained: it does
+   NOT depend on page-level custom properties, so the header is
+   identical everywhere.
+   ============================================================ */
+header{
+  --nav-ink:#111114;
+  --nav-ink-2:#1b1b1f;
+  --nav-red:#e2241a;
+  --nav-red-deep:#a3160e;
+  --nav-white:#ffffff;
+  --nav-steel-light:#a7a7ae;
+  --nav-paper:#f6f4f0;
+  --nav-focus:#ffb703;
+  position:sticky; top:0; z-index:100; padding:0;
+  background:var(--nav-ink);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+header .nav-row{
+  max-width:1200px; margin:0 auto; padding:0 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  height:76px; gap:20px;
+}
+header .brand{display:flex; align-items:center; gap:12px; color:var(--nav-white); text-decoration:none;}
+header .brand-text{display:flex; flex-direction:column; line-height:1; align-items:flex-start;}
+header .brand-logo-img{height:56px; width:auto; display:block; align-self:flex-start; object-fit:contain; flex-shrink:0;}
+header .brand-text .sub{font-size:10.5px; letter-spacing:0.14em; color:var(--nav-red); text-transform:uppercase; font-weight:600; margin-top:4px;}
+
+header nav.primary-nav{display:flex; align-items:center; gap:32px;}
+header nav.primary-nav > a,
+header nav.primary-nav .nav-parent{
+  color:var(--nav-steel-light); font-size:14.5px; font-weight:600; letter-spacing:0.01em;
+  text-decoration:none; white-space:nowrap; transition:color 0.15s ease;
+  display:inline-flex; align-items:center; gap:7px; background:none; border:0; padding:0;
+}
+header nav.primary-nav > a:hover,
+header nav.primary-nav .nav-parent:hover{color:var(--nav-white);}
+header nav.primary-nav > a[aria-current="page"],
+header nav.primary-nav .nav-parent[aria-current="page"]{color:var(--nav-white);}
+
+/* ---- Services dropdown ---- */
+.nav-item{position:relative; display:flex; align-items:center;}
+.nav-item .caret{transition:transform 0.18s ease; flex-shrink:0;}
+.nav-item:hover .caret,
+.nav-item:focus-within .caret,
+.nav-item.open .caret{transform:rotate(180deg);}
+.nav-sub{
+  position:absolute; top:calc(100% + 16px); left:-16px; min-width:250px;
+  display:none; flex-direction:column; padding:10px;
+  background:var(--nav-white); border:1px solid rgba(17,17,20,0.08); border-radius:10px;
+  box-shadow:0 26px 50px -22px rgba(17,17,20,0.45); z-index:130;
+}
+/* invisible bridge so the pointer can travel from the link to the panel */
+.nav-sub::before{content:''; position:absolute; left:0; right:0; top:-18px; height:18px;}
+.nav-item:hover .nav-sub,
+.nav-item:focus-within .nav-sub,
+.nav-item.open .nav-sub{display:flex;}
+header nav.primary-nav .nav-sub a{
+  color:var(--nav-ink); font-size:14px; font-weight:600; letter-spacing:0;
+  padding:11px 14px; border-radius:6px; text-decoration:none; white-space:nowrap;
+}
+header nav.primary-nav .nav-sub a:hover{background:var(--nav-paper); color:var(--nav-red);}
+header nav.primary-nav .nav-sub a[aria-current="page"]{background:var(--nav-paper); color:var(--nav-red);}
+header nav.primary-nav .nav-sub a.nav-sub-all{
+  margin-top:6px; border-top:1px solid rgba(17,17,20,0.08); border-radius:0 0 6px 6px;
+  padding-top:12px; color:var(--nav-red);
+}
+
+/* ---- Right side actions ---- */
+header .nav-actions{display:flex; align-items:center; gap:14px;}
+header .phone-pill{display:flex; align-items:center; gap:8px; color:var(--nav-white); font-weight:700; font-size:15px; white-space:nowrap; text-decoration:none;}
+header .phone-pill svg{flex-shrink:0;}
+header .btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:13px 24px; border-radius:3px; border:2px solid transparent;
+  font-family:inherit; font-size:14px; font-weight:700; letter-spacing:0.02em;
+  text-transform:uppercase; white-space:nowrap; cursor:pointer; text-decoration:none;
+}
+header .btn-red{background:var(--nav-red); color:var(--nav-white);}
+header .btn-red:hover{background:var(--nav-red-deep);}
+header :focus-visible{outline:3px solid var(--nav-focus); outline-offset:2px;}
+
+header .menu-toggle{display:none; background:none; border:0; color:var(--nav-white); padding:4px; line-height:0; cursor:pointer;}
+header .menu-toggle .i-close{display:none;}
+
+/* ---- Mobile / small screens: collapse into one panel ---- */
+@media (max-width:760px){
+  header .nav-row{gap:10px;}
+  header nav.primary-nav{display:none;}
+  header .menu-toggle{display:block;}
+  header .phone-pill span{display:none;}
+  header .btn{padding:12px 18px; font-size:13px;}
+  header.nav-open .menu-toggle .i-open{display:none;}
+  header.nav-open .menu-toggle .i-close{display:block;}
+  header.nav-open nav.primary-nav{
+    display:flex; flex-direction:column; align-items:stretch; gap:0;
+    position:absolute; left:0; right:0; top:100%;
+    background:var(--nav-ink); border-top:1px solid rgba(255,255,255,0.08);
+    padding:8px 24px 26px; max-height:calc(100vh - 77px); overflow-y:auto;
+    box-shadow:0 30px 50px -20px rgba(0,0,0,0.6);
+  }
+  header.nav-open nav.primary-nav > a,
+  header.nav-open nav.primary-nav .nav-parent{
+    padding:16px 0; font-size:16px; color:var(--nav-white);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  header.nav-open .nav-item{flex-direction:column; align-items:stretch;}
+  header.nav-open .nav-item .caret{display:none;}
+  header.nav-open .nav-sub{
+    position:static; display:flex; min-width:0; padding:6px 0 10px 16px;
+    background:transparent; border:0; box-shadow:none; border-radius:0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  header.nav-open .nav-sub::before{display:none;}
+  header.nav-open nav.primary-nav .nav-sub a{
+    color:rgba(255,255,255,0.72); font-size:15px; padding:11px 0;
+  }
+  header.nav-open nav.primary-nav .nav-sub a:hover{background:transparent; color:var(--nav-white);}
+  header.nav-open nav.primary-nav .nav-sub a.nav-sub-all{
+    margin-top:2px; border-top:0; color:var(--nav-red); font-weight:700;
+  }
+}
+@media (max-width:400px){
+  header .brand-logo-img{height:44px;}
+}
+
+/* Tablet range: keep the row on one line without crowding (761-860px) */
+@media (max-width:860px) and (min-width:761px){
+  header .nav-row{gap:12px;}
+  header nav.primary-nav{gap:18px;}
+  header .nav-actions{gap:10px;}
+  header .btn{padding:12px 18px; font-size:13px;}
+}
