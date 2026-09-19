@@ -707,3 +707,19 @@
 .page-hero.ph-contact   {background-image:url(/images/hero-5.jpg); background-position:center 46%;}
 .page-hero.ph-blog      {background-image:url(/images/hero-3.jpg); background-position:center 26%;}
 .page-hero.ph-financing {background-image:url(/images/hero-4.jpg); background-position:center 46%;}
+.page-hero.ph-generators{background-image:url(/images/generator-install/hero-generators-2000.webp); background-position:center 45%;}
+/* The hero is a CSS background-image, which cannot use srcset, so a phone would
+   otherwise pull the 2000px file. Swap in the purpose-made 800px crop below
+   700px: ~83KB instead of ~255KB on the device that pays for it. */
+@media (max-width:700px){
+  .page-hero.ph-generators{background-image:url(/images/generator-install/hero-generators-800.webp);}
+}
+
+/* ---------- Generator page ---------- */
+/* Text + photo intro block (collapses to one column on small screens) */
+.gen-intro{display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,400px); gap:36px; align-items:center;}
+@media (max-width:780px){ .gen-intro{grid-template-columns:1fr; gap:24px;} }
+/* Install photo grid. 8 photos: auto-fit gives 4 / 2 / 1 columns, all of which
+   divide 8 exactly, so no row is left with a gap. */
+.photo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px;}
+.photo-grid img{display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:8px; background:var(--paper-2);}
